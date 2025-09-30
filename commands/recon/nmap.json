@@ -1,0 +1,66 @@
+{
+  "id": "11f7f531-a67",
+  "name": "Nmap - fast & service scans",
+  "tool": "nmap",
+  "description": "Flexible network scanner for port discovery, service/version detection and scripting.",
+  "tags": [
+    "nmap",
+    "recon",
+    "scan"
+  ],
+  "ports": [
+    "22",
+    "80",
+    "443",
+    "3389",
+    "445"
+  ],
+  "commands": [
+    {
+      "name": "Fast SYN all ports",
+      "command": "nmap -sS -T4 -p- --min-rate 1000 --open -oN nmap_all_{TARGET}.txt {TARGET}",
+      "description": "Fast SYN scan across all TCP ports and save output to file.",
+      "ports": []
+    },
+    {
+      "name": "Service/version + default scripts",
+      "command": "nmap -sV -sC -p 22,80,443 -oN nmap_services_{TARGET}.txt {TARGET}",
+      "description": "Service/version detection on common ports and run default NSE scripts; save output.",
+      "ports": [
+        "22",
+        "80",
+        "443"
+      ]
+    },
+    {
+      "name": "UDP scan (top ports)",
+      "command": "nmap -sU --top-ports 100 -T4 -oN nmap_udp_top100_{TARGET}.txt {TARGET}",
+      "description": "UDP scan of the top 100 UDP ports using nmap's `--top-ports` heuristic; output saved for analysis. UDP scans are slower and may require retries/adjusted timing.",
+      "ports": [
+        "53",
+        "69",
+        "161",
+        "123",
+        "500"
+      ]
+    },
+    {
+      "name": "NSE script-driven scan (default/safe/vuln)",
+      "command": "nmap -sV --script=\"default,safe,vuln\" -oN nmap_scripts_{TARGET}.txt {TARGET}",
+      "description": "Run Nmap Service/version detection and execute selected NSE script categories (`default`, `safe`, and `vuln`) to look for common vulnerabilities and useful service info. Adjust script sets as needed.",
+      "ports": []
+    },
+    {
+      "name": "FTP-focused NSE scripts (FTP & TFTP checks)",
+      "command": "nmap --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221,tftp-enum -p 21 {TARGET}",
+      "description": "Run a set of FTP-related NSE scripts (anonymous access, bounce, vendor/backdoor checks and known vuln checks) plus tftp-enum; targets TCP 21 for FTP (and tftp-enum may check UDP 69). Useful for quickly identifying FTP/TFTP issues.",
+      "ports": [
+        "21",
+        "69"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

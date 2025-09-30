@@ -1,0 +1,22 @@
+{
+  "id": "38b69b47-a513-47c7-8598-b08bec565383",
+  "name": "crunch - wordlist generator",
+  "tool": "crunch",
+  "description": "Generate custom wordlists based on charset and length ranges.",
+  "tags": [
+    "crunch",
+    "wordlist"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Generate wordlist",
+      "command": "crunch 8 12 abcdef1234 -o wordlist.txt",
+      "description": "Create a wordlist file with specified charset.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

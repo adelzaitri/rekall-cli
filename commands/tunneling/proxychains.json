@@ -1,0 +1,22 @@
+{
+  "id": "1618c703-e843-4249-87a6-043db2faa05f",
+  "name": "proxychains - route via proxy",
+  "tool": "proxychains",
+  "description": "Force applications to run through SOCKS/HTTP proxies.",
+  "tags": [
+    "proxychains",
+    "proxy"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Proxy nmap through proxychains",
+      "command": "proxychains nmap -sT {TARGET}",
+      "description": "Run Nmap through proxy chains to route via proxy.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

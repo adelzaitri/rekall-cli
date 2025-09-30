@@ -1,0 +1,29 @@
+{
+  "id": "d5cc5bae-0da7-4e2d-b38f-eb769224d421",
+  "name": "amass - subdomain enumeration",
+  "tool": "amass",
+  "description": "DNS and subdomain discovery via passive and active enumeration methods.",
+  "tags": [
+    "amass",
+    "recon",
+    "subdomain"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Enum passive+active",
+      "command": "amass enum -d {DOMAIN} -o amass_{DOMAIN}.txt",
+      "description": "Enumerate subdomains and save to file.",
+      "ports": []
+    },
+    {
+      "name": "DNS brute force",
+      "command": "amass brute -d {DOMAIN} -o amass_brute_{DOMAIN}.txt",
+      "description": "Run brute-force subdomain enumeration.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

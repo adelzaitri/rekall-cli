@@ -1,0 +1,22 @@
+{
+  "id": "15a60dcf-023b-4176-90f0-f51ac0abdaad",
+  "name": "netdiscover - ARP network discovery",
+  "tool": "netdiscover",
+  "description": "Quickly find live hosts on a local network using ARP requests.",
+  "tags": [
+    "netdiscover",
+    "recon"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "ARP scan",
+      "command": "netdiscover -r {RANGE}",
+      "description": "Scan local network range for live hosts.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

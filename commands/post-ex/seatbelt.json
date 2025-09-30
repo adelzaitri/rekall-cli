@@ -1,0 +1,22 @@
+{
+  "id": "812f81cd-9616-463f-a9c4-904184c75b52",
+  "name": "seatbelt - Windows host enumeration",
+  "tool": "seatbelt",
+  "description": "Run Seatbelt to enumerate Windows host security settings and artifacts.",
+  "tags": [
+    "seatbelt",
+    "windows"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Run Seatbelt all checks",
+      "command": "Seatbelt.exe all",
+      "description": "Run all Seatbelt checks and output results.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

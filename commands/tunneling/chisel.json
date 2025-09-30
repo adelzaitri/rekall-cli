@@ -1,0 +1,22 @@
+{
+  "id": "48f796ea-b0ec-4e29-b1cd-54daf7e50c3b",
+  "name": "chisel - tunneling tool",
+  "tool": "chisel",
+  "description": "Fast TCP/HTTP tunneling tool for port forwarding and proxies.",
+  "tags": [
+    "chisel",
+    "tunnel"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Start chisel client",
+      "command": "./chisel client {SERVER_IP}:8000 R:1080:socks",
+      "description": "Start client to forward traffic via server.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

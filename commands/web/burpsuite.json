@@ -1,0 +1,22 @@
+{
+  "id": "aa658784-e8d",
+  "name": "Burp Suite - web proxy",
+  "tool": "burpsuite",
+  "description": "Interactive web proxy for intercepting, modifying and replaying HTTP(S) requests.",
+  "tags": [
+    "burp",
+    "proxy"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Launch Burp Suite",
+      "command": "burpsuite",
+      "description": "Start Burp Suite; configure browser to use proxy.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

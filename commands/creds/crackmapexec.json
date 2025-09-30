@@ -1,0 +1,35 @@
+{
+  "id": "82e236d0-e47",
+  "name": "CrackMapExec - SMB/AD quick checks",
+  "tool": "crackmapexec",
+  "description": "Quickly test credentials and enumerate SMB/AD data at scale.",
+  "tags": [
+    "cme",
+    "smb",
+    "ad"
+  ],
+  "ports": [
+    "445"
+  ],
+  "commands": [
+    {
+      "name": "SMB enumeration (shares, sessions)",
+      "command": "crackmapexec smb {TARGET} -u {USER} -p {PASS} --shares",
+      "description": "Enumerate SMB shares using provided credentials.",
+      "ports": [
+        "445"
+      ]
+    },
+    {
+      "name": "Write output to file",
+      "command": "crackmapexec smb {TARGET} -u {USER} -p {PASS} --shares > cme_{TARGET}.txt",
+      "description": "Save CME output to a file for analysis.",
+      "ports": [
+        "445"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "61918c3a-9d8a-437c-873d-e3a661c9f57f",
+  "name": "les - Linux Exploit Suggester",
+  "tool": "les",
+  "description": "Suggests exploits for kernel and packages based on systemfingerprint.",
+  "tags": [
+    "les",
+    "linux",
+    "exploit-suggester"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Run LES",
+      "command": "./linux-exploit-suggester.sh",
+      "description": "Analyze systeminfo to suggest local exploits.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "8b23ed5d-6f23-4231-b7cc-64257c25ebb8",
+  "name": "patator - flexible brute-forcing",
+  "tool": "patator",
+  "description": "Modular brute-forcer supporting flexible modules and output formats.",
+  "tags": [
+    "patator",
+    "brute"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "SSH brute with patator",
+      "command": "patator ssh_login host={TARGET} user={USER} password=FILE0 0=passwords.txt -x ignore:fgrep='Authentication failed'",
+      "description": "Run patator SSH module with password list.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

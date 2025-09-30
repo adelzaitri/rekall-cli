@@ -1,0 +1,29 @@
+{
+  "id": "997d6cd9-a06c-4919-83f9-79bf0ed78132",
+  "name": "dirsearch - content discovery",
+  "tool": "dirsearch",
+  "description": "Alternative web directory scanner optimized for performance and filtering.",
+  "tags": [
+    "dirsearch",
+    "web",
+    "discovery"
+  ],
+  "ports": [
+    "80",
+    "443"
+  ],
+  "commands": [
+    {
+      "name": "Dirsearch scan",
+      "command": "dirsearch -u http://{TARGET} -e php,html,txt -o dirsearch_{TARGET}.txt",
+      "description": "Run dirsearch and output results to a file.",
+      "ports": [
+        "80",
+        "443"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

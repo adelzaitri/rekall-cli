@@ -1,0 +1,23 @@
+{
+  "id": "0ef5973d-dece-4d12-90da-3fde23d07b8b",
+  "name": "sublist3r - subdomain discovery",
+  "tool": "sublist3r",
+  "description": "Enumerate subdomains using multiple search engines and services.",
+  "tags": [
+    "sublist3r",
+    "recon",
+    "subdomain"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Enumerate subdomains",
+      "command": "sublist3r -d {DOMAIN} -o sublist3r_{DOMAIN}.txt",
+      "description": "Gather subdomains via various sources and save output.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "3d39dedc-0dd",
+  "name": "Hydra - online password guessing",
+  "tool": "hydra",
+  "description": "Multi-protocol parallelized password guessing tool.",
+  "tags": [
+    "hydra",
+    "brute"
+  ],
+  "ports": [
+    "22"
+  ],
+  "commands": [
+    {
+      "name": "SSH password attack",
+      "command": "hydra -l {USER} -P {PASSLIST} -t 4 -o hydra_ssh.txt ssh://{TARGET}:{PORT}",
+      "description": "Hydra SSH attack with output saved.",
+      "ports": [
+        "22"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

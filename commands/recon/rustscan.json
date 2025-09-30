@@ -1,0 +1,26 @@
+{
+  "id": "a1f5b9e2-c8b2",
+  "name": "RustScan - fast port discovery (with Nmap handoff)",
+  "tool": "rustscan",
+  "category": "recon",
+  "platform": "any",
+  "tags": ["rustscan","port-scan","nmap","recon"],
+  "description": "RustScan is a high-speed port scanner that can hand off discovered open ports to Nmap for service/version detection and scripting. The example runs RustScan with elevated privileges and then calls Nmap features on discovered ports.",
+  "ports": [],
+  "commands": [
+    {
+      "name": "Fast scan and run Nmap scripts, save output",
+      "command": "sudo rustscan -a $IP -- -A -sC -o rustscan-{TARGET}.txt",
+      "description": "Run RustScan against $IP, handing discovered ports to Nmap with aggressive detection (-A) and default scripts (-sC). Output saved to a templated file `rustscan-{TARGET}.txt`.",
+      "ports": []
+    },
+    {
+      "name": "Save RustScan raw output",
+      "command": "sudo rustscan -a $IP -u -o rustscan_raw-{TARGET}.txt",
+      "description": "Capture RustScan raw output to a file for later parsing (example raw output command).",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z"
+}

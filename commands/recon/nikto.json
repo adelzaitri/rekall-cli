@@ -1,0 +1,38 @@
+{
+  "id": "c858e688-bb6",
+  "name": "Nikto - web server scanning",
+  "tool": "nikto",
+  "description": "Scan web servers for common vulnerabilities, misconfigurations and outdated software.",
+  "tags": [
+    "nikto",
+    "web",
+    "scanner"
+  ],
+  "ports": [
+    "80",
+    "443"
+  ],
+  "commands": [
+    {
+      "name": "Basic Nikto scan",
+      "command": "nikto -h http://{TARGET}:{PORT}",
+      "description": "Run Nikto against a host to find known issues.",
+      "ports": [
+        "80",
+        "443"
+      ]
+    },
+    {
+      "name": "Save nikto report",
+      "command": "nikto -h http://{TARGET}:{PORT} -output nikto_{TARGET}.txt",
+      "description": "Save Nikto scan output to a file.",
+      "ports": [
+        "80",
+        "443"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

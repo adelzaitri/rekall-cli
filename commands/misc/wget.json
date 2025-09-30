@@ -1,0 +1,22 @@
+{
+  "id": "20b0e1a9-639",
+  "name": "wget - download files",
+  "tool": "wget",
+  "description": "Command-line downloader for HTTP/HTTPS/FTP; useful for pulling payloads.",
+  "tags": [
+    "wget",
+    "download"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Download file",
+      "command": "wget http://{IP}/{FILE} -O {OUT}",
+      "description": "Download a file and save as OUT.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

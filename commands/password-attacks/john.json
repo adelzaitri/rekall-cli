@@ -1,0 +1,22 @@
+{
+  "id": "2ad8c161-80c",
+  "name": "John the Ripper - password cracking",
+  "tool": "john",
+  "description": "Versatile password-cracking tool with many formats and rulesets.",
+  "tags": [
+    "john",
+    "crack"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Crack NTLM with rockyou",
+      "command": "john --wordlist=/usr/share/wordlists/rockyou.txt --format=NT hashes.txt",
+      "description": "Use John with wordlist for NTLM hashes.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

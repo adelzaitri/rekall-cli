@@ -1,0 +1,49 @@
+{
+  "id": "d2b7f3a1-6c4e",
+  "name": "xfreerdp3 - RDP client with dynamic resolution & scaling",
+  "tool": "xfreerdp3",
+  "category": "post-ex",
+  "platform": "linux",
+  "tags": ["xfreerdp","rdp","remote-desktop","post-ex"],
+  "description": "xfreerdp (FreeRDP) is an open-source RDP client for connecting to Windows Remote Desktop services. These examples demonstrate connecting with credentials, dynamic resolution, desktop scaling, and common options to bypass certificate checks or enable clipboard/drive redirection.",
+  "ports": [
+    "3389"
+  ],
+  "commands": [
+    {
+      "name": "Connect to RDP with scaling and dynamic resolution",
+      "command": "xfreerdp3 /v:{TARGET} /u:{USER} /p:{PASSWORD} /scale-desktop:200 /dynamic-resolution",
+      "description": "Connect to {TARGET} using provided user credentials, scale the remote desktop to 200% and allow the window to dynamically resize to local resolution changes.",
+      "ports": [
+        "3389"
+      ]
+    },
+    {
+      "name": "Connect ignoring certificate verification and enable clipboard redirection",
+      "command": "xfreerdp3 /v:{TARGET} /u:{USER} /p:{PASSWORD} /cert-ignore +clipboard",
+      "description": "Ignore server certificate validation (useful in lab environments) and enable clipboard sharing between client and remote session.",
+      "ports": [
+        "3389"
+      ]
+    },
+    {
+      "name": "Connect with drive redirection (map local folder) and sound",
+      "command": "xfreerdp3 /v:{TARGET} /u:{USER} /p:{PASSWORD} /drive:payload,/tmp -sound:sys:alsa",
+      "description": "Map local /tmp as a redirected drive named 'payload' and enable sound redirection using ALSA.",
+      "ports": [
+        "3389"
+      ]
+    },
+    {
+      "name": "Connect via gateway (RD Gateway) with TLS",
+      "command": "xfreerdp3 /v:{TARGET} /u:{USER} /p:{PASSWORD} /g:{GATEWAY} /gt:443 /sec:tls",
+      "description": "Route the RDP connection through an RD Gateway {GATEWAY} on port 443 and use TLS security.",
+      "ports": [
+        "3389",
+        "443"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z"
+}

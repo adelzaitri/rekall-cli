@@ -1,0 +1,29 @@
+{
+  "id": "9c01cf7b-8ada-4b5d-bb93-33103dde8a25",
+  "name": "whatweb - web fingerprinting",
+  "tool": "whatweb",
+  "description": "Detect web technologies, frameworks and server information from a URL.",
+  "tags": [
+    "whatweb",
+    "fingerprint",
+    "web"
+  ],
+  "ports": [
+    "80",
+    "443"
+  ],
+  "commands": [
+    {
+      "name": "Detect tech stack",
+      "command": "whatweb http://{TARGET}",
+      "description": "Identify server and framework technologies used by a web host.",
+      "ports": [
+        "80",
+        "443"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

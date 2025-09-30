@@ -1,0 +1,37 @@
+{
+  "id": "c7910d22-303",
+  "name": "curl - HTTP requests and header inspection",
+  "tool": "curl",
+  "description": "Flexible HTTP client to test endpoints, headers and form submissions.",
+  "tags": [
+    "curl",
+    "http"
+  ],
+  "ports": [
+    "80",
+    "443"
+  ],
+  "commands": [
+    {
+      "name": "Get response headers",
+      "command": "curl -I http://{TARGET}:{PORT}",
+      "description": "Fetch only the headers from the HTTP endpoint.",
+      "ports": [
+        "80",
+        "443"
+      ]
+    },
+    {
+      "name": "POST form data",
+      "command": "curl -X POST -d 'username={USER}&password={PASS}' http://{TARGET}:{PORT}/login",
+      "description": "Submit form data to a login endpoint.",
+      "ports": [
+        "80",
+        "443"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

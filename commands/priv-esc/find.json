@@ -1,0 +1,22 @@
+{
+  "id": "04bf1d49-36a",
+  "name": "Find - locate SUID binaries",
+  "tool": "find",
+  "description": "Unix find usage for locating SUID/SGID binaries and sensitive files.",
+  "tags": [
+    "find",
+    "suid"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Find SUID files",
+      "command": "find / -perm -4000 -type f 2>/dev/null | less",
+      "description": "List SUID files and pipe to pager.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}
