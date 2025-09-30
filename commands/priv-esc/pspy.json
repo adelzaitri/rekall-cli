@@ -1,0 +1,23 @@
+{
+  "id": "36d0fe4b-189",
+  "name": "pspy - process monitoring for Linux",
+  "tool": "pspy",
+  "description": "Lightweight process monitor to observe executed commands and scheduled tasks.",
+  "tags": [
+    "pspy",
+    "process",
+    "linux"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Run pspy",
+      "command": "./pspy64",
+      "description": "Monitor processes without installing anything on target.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

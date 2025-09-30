@@ -1,0 +1,28 @@
+{
+  "id": "cfe7f665-04be-4827-981d-f8a0764b7ac7",
+  "name": "ldapsearch - LDAP enumeration",
+  "tool": "ldapsearch",
+  "description": "Query LDAP directories to enumerate users, groups and attributes.",
+  "tags": [
+    "ldap",
+    "recon"
+  ],
+  "ports": [
+    "389",
+    "636"
+  ],
+  "commands": [
+    {
+      "name": "Anonymous LDAP query",
+      "command": "ldapsearch -x -h {TARGET} -b \"dc=example,dc=com\"",
+      "description": "Perform a basic LDAP search against a server.",
+      "ports": [
+        "389",
+        "636"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

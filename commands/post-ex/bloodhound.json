@@ -1,0 +1,28 @@
+{
+  "id": "0de3b2d6-f78e-4b2c-8558-d2fd6291c4fc",
+  "name": "bloodhound - AD enumeration and graphing",
+  "tool": "bloodhound",
+  "description": "Collect AD data and visualize attack paths with BloodHound/Neo4j.",
+  "tags": [
+    "bloodhound",
+    "ad"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Collect with SharpHound",
+      "command": "Invoke-BloodHound -CollectionMethod All -Domain {DOMAIN} -ZipFile bloodhound.zip",
+      "description": "Collect AD data and produce a zip file for ingestion.",
+      "ports": []
+    },
+    {
+      "name": "Upload and query",
+      "command": "bloodhound-python -u {USER} -p {PASS} -d {DOMAIN} -c all -o bh_out.json",
+      "description": "Collect via bloodhound-python and output JSON.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

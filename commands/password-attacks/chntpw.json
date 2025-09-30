@@ -1,0 +1,23 @@
+{
+  "id": "9b57d76d-7de",
+  "name": "chntpw - offline Windows SAM editing",
+  "tool": "chntpw",
+  "description": "Reset or edit Windows local accounts by editing the SAM hive offline.",
+  "tags": [
+    "chntpw",
+    "windows",
+    "offline"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Reset user password",
+      "command": "chntpw -u {USERNAME} /mnt/Windows/System32/config/SAM",
+      "description": "Clear or reset a local Windows account password.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

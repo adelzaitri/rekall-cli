@@ -1,0 +1,28 @@
+{
+  "id": "2820d5c6-e9b",
+  "name": "WPScan - WordPress vulnerability scanner",
+  "tool": "wpscan",
+  "description": "WordPress-focused scanner to enumerate plugins, themes and users for known vulnerabilities.",
+  "tags": [
+    "wpscan",
+    "wordpress"
+  ],
+  "ports": [
+    "80",
+    "443"
+  ],
+  "commands": [
+    {
+      "name": "Enumerate WordPress users",
+      "command": "wpscan --url http://{TARGET} --enumerate u -o wpscan_{TARGET}.txt",
+      "description": "List user accounts and export results.",
+      "ports": [
+        "80",
+        "443"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

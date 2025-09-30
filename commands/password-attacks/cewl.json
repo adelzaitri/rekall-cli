@@ -1,0 +1,29 @@
+{
+  "id": "5ade6b22-0ae",
+  "name": "CeWL - custom wordlist generator",
+  "tool": "cewl",
+  "description": "Crawl a website and create a custom wordlist from its content.",
+  "tags": [
+    "cewl",
+    "wordlist",
+    "recon"
+  ],
+  "ports": [
+    "80",
+    "443"
+  ],
+  "commands": [
+    {
+      "name": "Create wordlist from site",
+      "command": "cewl http://{TARGET} -w wordlist.txt",
+      "description": "Generate a wordlist file from site content.",
+      "ports": [
+        "80",
+        "443"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

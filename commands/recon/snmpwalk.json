@@ -1,0 +1,34 @@
+{
+  "id": "dec821c9-0b3",
+  "name": "snmpwalk - SNMP enumeration",
+  "tool": "snmpwalk",
+  "description": "Enumerate SNMP OIDs and gather device/system information using SNMP v1/v2c.",
+  "tags": [
+    "snmp",
+    "recon"
+  ],
+  "ports": [
+    "161"
+  ],
+  "commands": [
+    {
+      "name": "Walk public community",
+      "command": "snmpwalk -v2c -c public {TARGET}",
+      "description": "Query SNMP with the common 'public' community string.",
+      "ports": [
+        "161"
+      ]
+    },
+    {
+      "name": "Save output to file",
+      "command": "snmpwalk -v2c -c public {TARGET} > snmpwalk_{TARGET}.txt",
+      "description": "Save SNMPwalk output to a file for later analysis.",
+      "ports": [
+        "161"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

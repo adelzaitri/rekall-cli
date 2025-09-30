@@ -1,0 +1,22 @@
+{
+  "id": "4cf56253-3bd4-4da5-9a0c-d24858b97492",
+  "name": "tmux - terminal multiplexer",
+  "tool": "tmux",
+  "description": "Manage multiple terminal sessions and keep processes running after disconnect.",
+  "tags": [
+    "tmux",
+    "session"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "New tmux session",
+      "command": "tmux new -s pentest",
+      "description": "Create a new named tmux session.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

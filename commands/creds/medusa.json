@@ -1,0 +1,27 @@
+{
+  "id": "2f5c550f-b10",
+  "name": "Medusa - fast online brute force",
+  "tool": "medusa",
+  "description": "Parallelized login brute-forcer supporting many protocols.",
+  "tags": [
+    "medusa",
+    "brute",
+    "ssh"
+  ],
+  "ports": [
+    "22"
+  ],
+  "commands": [
+    {
+      "name": "SSH brute-force",
+      "command": "medusa -h {TARGET} -u {USER} -P {PASSLIST} -M ssh -n {PORT}",
+      "description": "Attempt SSH logins using a password list.",
+      "ports": [
+        "22"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

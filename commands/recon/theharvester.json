@@ -1,0 +1,22 @@
+{
+  "id": "c41f5c26-5ba4-4cd3-ae22-05b26f1dd709",
+  "name": "theHarvester - OSINT collection",
+  "tool": "theHarvester",
+  "description": "Collect emails, hostnames and subdomains from public sources for reconnaissance.",
+  "tags": [
+    "osint",
+    "theHarvester"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Gather OSINT",
+      "command": "theHarvester -d {DOMAIN} -b google -l 200 -f theharvest_{DOMAIN}.html",
+      "description": "Run OSINT collection and save an HTML report.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

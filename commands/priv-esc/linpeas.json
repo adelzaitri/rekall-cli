@@ -1,0 +1,22 @@
+{
+  "id": "1a6b188e-b30",
+  "name": "LinPEAS - Linux privilege escalation enumeration",
+  "tool": "linpeas",
+  "description": "Comprehensive Linux enumeration script to discover local privilege escalation vectors.",
+  "tags": [
+    "linpeas",
+    "priv-esc"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Execute linpeas script",
+      "command": "./linpeas.sh",
+      "description": "Run LinPEAS to scan for common misconfigurations.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

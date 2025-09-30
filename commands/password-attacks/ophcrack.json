@@ -1,0 +1,22 @@
+{
+  "id": "369df3ef-95d",
+  "name": "Ophcrack - rainbow table cracking",
+  "tool": "ophcrack",
+  "description": "Crack Windows LM/NTLM hashes using rainbow tables.",
+  "tags": [
+    "ophcrack",
+    "rainbow"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Run ophcrack with tables",
+      "command": "ophcrack -t /path/to/tables -d /path/to/hashes",
+      "description": "Use a tables directory to crack Windows hashes.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

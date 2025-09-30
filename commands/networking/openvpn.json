@@ -1,0 +1,20 @@
+{
+  "id": "7c2d9f0a-3f4a",
+  "name": "OpenVPN - connect using a configuration file",
+  "tool": "openvpn",
+  "category": "misc",
+  "platform": "any",
+  "tags": ["openvpn","vpn","connectivity"],
+  "description": "Start an OpenVPN client using a provided .ovpn configuration file. Useful to connect into target VPNs for pivoting or accessing internal networks.",
+  "ports": ["1194"],
+  "commands": [
+    {
+      "name": "Connect using .ovpn config (low verbosity)",
+      "command": "sudo openvpn --config universal.ovpn --verb 1",
+      "description": "Run OpenVPN with a specified configuration file and low verbosity for cleaner logs. Uses elevated privileges to create tun/tap device.",
+      "ports": ["1194"]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z"
+}

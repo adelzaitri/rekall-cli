@@ -1,0 +1,22 @@
+{
+  "id": "95380d41-51e2-4575-a897-31ee6b81641f",
+  "name": "gpp-decrypt - decrypt Group Policy credentials",
+  "tool": "gpp-decrypt",
+  "description": "Decrypt cpassword values extracted from Group Policy Preferences.",
+  "tags": [
+    "gpp-decrypt",
+    "ad"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Decrypt cpassword",
+      "command": "gpp-decrypt {CPASSWORD}",
+      "description": "Decrypt an encrypted Group Policy Preference cpassword.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

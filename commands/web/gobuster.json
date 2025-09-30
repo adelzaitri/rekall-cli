@@ -1,0 +1,38 @@
+{
+  "id": "2aadd55f-cd9",
+  "name": "Gobuster - directory & vhost scanning",
+  "tool": "gobuster",
+  "description": "Directory and virtual host discovery tool for web servers.",
+  "tags": [
+    "gobuster",
+    "dir",
+    "vhost"
+  ],
+  "ports": [
+    "80",
+    "443"
+  ],
+  "commands": [
+    {
+      "name": "Directory scan (files & folders)",
+      "command": "gobuster dir -u http://{TARGET} -w /usr/share/wordlists/dirb/common.txt -x php,html,txt -t 50 -o gobuster_{TARGET}.txt",
+      "description": "Brute-force directories and save to file.",
+      "ports": [
+        "80",
+        "443"
+      ]
+    },
+    {
+      "name": "Virtual host discovery",
+      "command": "gobuster vhost -u http://{TARGET} -w ~/vhosts.txt -t 50 -o gobuster_vhost_{TARGET}.txt",
+      "description": "Enumerate virtual hosts by testing Host header variants.",
+      "ports": [
+        "80",
+        "443"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

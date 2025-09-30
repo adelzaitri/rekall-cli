@@ -1,0 +1,38 @@
+{
+  "id": "7febd234-1e0",
+  "name": "FFUF - fast web fuzzer",
+  "tool": "ffuf",
+  "description": "Fast web fuzzer for directories, parameters and host discovery.",
+  "tags": [
+    "ffuf",
+    "fuzz",
+    "web"
+  ],
+  "ports": [
+    "80",
+    "443"
+  ],
+  "commands": [
+    {
+      "name": "Directory fuzzing",
+      "command": "ffuf -u http://{TARGET}/FUZZ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -mc 200 -o ffuf_dir_{TARGET}.json",
+      "description": "Brute-force directories and save JSON results.",
+      "ports": [
+        "80",
+        "443"
+      ]
+    },
+    {
+      "name": "Save results to text",
+      "command": "ffuf -u http://{TARGET}/FUZZ -w wordlist.txt -mc 200 -o ffuf_{TARGET}.txt",
+      "description": "Output results to a text file.",
+      "ports": [
+        "80",
+        "443"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "9acc8d5f-0cd",
+  "name": "scp - secure copy over SSH",
+  "tool": "scp",
+  "description": "Copy files to/from remote systems using SSH transport.",
+  "tags": [
+    "scp",
+    "ssh",
+    "transfer"
+  ],
+  "ports": [
+    "22"
+  ],
+  "commands": [
+    {
+      "name": "Copy file to remote /tmp",
+      "command": "scp {LOCAL_FILE} {USER}@{TARGET}:/tmp/",
+      "description": "Copy file to remote host's /tmp directory.",
+      "ports": [
+        "22"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

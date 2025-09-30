@@ -1,0 +1,22 @@
+{
+  "id": "eddd43de-746b-4623-9681-caaf2283db32",
+  "name": "sshuttle - VPN-like tunneling",
+  "tool": "sshuttle",
+  "description": "Route network traffic through a remote SSH server to access internal networks.",
+  "tags": [
+    "sshuttle",
+    "tunnel"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Run sshuttle",
+      "command": "sshuttle -r {USER}@{SSH_SERVER} 0/0 -vv",
+      "description": "Tunnel all traffic through SSH server.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

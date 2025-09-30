@@ -1,0 +1,38 @@
+{
+  "id": "f4e0b6c7-9d11",
+  "name": "Feroxbuster - recursive web content discovery",
+  "tool": "feroxbuster",
+  "category": "web",
+  "platform": "any",
+  "tags": ["feroxbuster","web","fuzz","discovery","dirb","seclists"],
+  "description": "Feroxbuster is a fast, recursive web content discovery tool. These examples demonstrate varying performance and wordlist choices for directory/file discovery on HTTP services and saving results to files.",
+  "ports": ["80"],
+  "commands": [
+    {
+      "name": "Basic folder scan",
+      "command": "feroxbuster -u http://{TARGET}:8080/ --scan-dir-listings --threads 50 -r -o 8080-ferox-{TARGET}.txt -x pdf -x js,html -x php txt json,docx",
+      "description": "Recursive scan of `{TARGET}` using a broad set of file extensions; moderate threading (20) and DirB wordlist. Results saved to `80-ferox-{TARGET}.txt`.",
+      "ports": ["80"]
+    },
+    {
+      "name": "Basic recursive scan with common extensions (templated target)",
+      "command": "feroxbuster -u http://{TARGET} -x htm,php,html,js,txt,zip,bak,asp,aspx,xml,py -r -o 80-ferox-{TARGET}.txt -w /usr/share/dirb/wordlists/big.txt -t 20",
+      "description": "Recursive scan of `{TARGET}` using a broad set of file extensions; moderate threading (20) and DirB wordlist. Results saved to `80-ferox-{TARGET}.txt`.",
+      "ports": ["80"]
+    },
+    {
+      "name": "High-throughput scan using large Seclists wordlist",
+      "command": "feroxbuster -u http://$IP/ -x htm,php,html,js,txt,zip,bak,asp,aspx,xml,py -r -o enum/80-ferox-$IP.txt -w /usr/share/seclists/Discovery/Web-Content/raft-large-directories-lowercase.txt -t 100",
+      "description": "High-speed enumeration against `$IP` using the Raft large directories wordlist and 100 threads; output saved under `enum/` folder.",
+      "ports": ["80"]
+    },
+    {
+      "name": "Comprehensive extension set for deep enumeration (RHOST templated)",
+      "command": "feroxbuster -u http://$RHOST/ -x htm,php,html,js,txt,zip,bak,asp,aspx,xml,py,cgi,jsp,pdf,doc,docx,xls,xlsx,xsl,rtf,phphtml,sh,pl,config,php7,exe -r -o enum/80-ferox-$RHOST.txt -w /usr/share/seclists/Discovery/Web-Content/raft-large-directories-lowercase.txt -t 100",
+      "description": "Deep recursive scan against `$RHOST` with an expanded set of extensions (including binary/document extensions) and a large wordlist; useful when targets may host varied file types. Results saved to `enum/80-ferox-$RHOST.txt`.",
+      "ports": ["80"]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z"
+}

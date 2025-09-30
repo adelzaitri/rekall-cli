@@ -1,0 +1,22 @@
+{
+  "id": "9f80ea01-7440-4fe4-9b34-b2361aa01b50",
+  "name": "linenum - Linux privilege enumeration",
+  "tool": "linenum",
+  "description": "A simple Linux enumeration script to suggest possible privilege escalation paths.",
+  "tags": [
+    "linenum",
+    "priv-esc"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Run linenum",
+      "command": "./linenum.sh",
+      "description": "Execute Linenum script to gather system info.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

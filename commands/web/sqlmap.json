@@ -1,0 +1,34 @@
+{
+  "id": "33d2e22e-bc3",
+  "name": "SQLMap - automated SQL injection testing",
+  "tool": "sqlmap",
+  "description": "Automated SQL injection and database takeover tool supporting many DB engines.",
+  "tags": [
+    "sqlmap",
+    "sqli"
+  ],
+  "ports": [
+    "80",
+    "443"
+  ],
+  "commands": [
+    {
+      "name": "Quick SQLMap test",
+      "command": "sqlmap -u \"http://{TARGET}/vuln.php?id=1\" --batch --risk=2 --level=2 -o sqlmap_{TARGET}.txt",
+      "description": "Detect SQL injection and save output.",
+      "ports": [
+        "80",
+        "443"
+      ]
+    },
+    {
+      "name": "Enumerate DBs from request file",
+      "command": "sqlmap -r request.txt --batch --dbs",
+      "description": "Use a saved HTTP request to enumerate databases.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

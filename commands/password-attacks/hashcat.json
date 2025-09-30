@@ -1,0 +1,22 @@
+{
+  "id": "965edc84-38d",
+  "name": "Hashcat - GPU accelerated cracking",
+  "tool": "hashcat",
+  "description": "High-performance GPU-based password cracker supporting many hash types.",
+  "tags": [
+    "hashcat",
+    "gpu"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "NTLM straight attack",
+      "command": "hashcat -m 1000 -a 0 hashes.txt /usr/share/wordlists/rockyou.txt --status",
+      "description": "Run hashcat in straight mode for NTLM hashes.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

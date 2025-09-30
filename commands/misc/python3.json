@@ -1,0 +1,34 @@
+{
+  "id": "a3e0e763-ec7",
+  "name": "Python3 - simple HTTP server",
+  "tool": "python3",
+  "description": "Start a simple file server for hosting payloads or files during an engagement.",
+  "tags": [
+    "python",
+    "http"
+  ],
+  "ports": [
+    "8000"
+  ],
+  "commands": [
+    {
+      "name": "Start HTTP server (default 8000)",
+      "command": "python3 -m http.server 8000",
+      "description": "Serve current directory over HTTP on port 8000.",
+      "ports": [
+        "8000"
+      ]
+    },
+    {
+      "name": "Start HTTP server and log to file",
+      "command": "python3 -m http.server 8000 > http_server_{IP}.log 2>&1",
+      "description": "Start server and redirect output to a log file.",
+      "ports": [
+        "8000"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "b6d4fac9-eef5-455c-9f2a-4524e6239ccc",
+  "name": "xsstrike - XSS scanner",
+  "tool": "xsstrike",
+  "description": "Active XSS scanning and exploitation tool with fuzzing capabilities.",
+  "tags": [
+    "xsstrike",
+    "xss",
+    "web"
+  ],
+  "ports": [
+    "80",
+    "443"
+  ],
+  "commands": [
+    {
+      "name": "Scan for XSS",
+      "command": "xsstrike -u http://{TARGET} -o xs_{TARGET}.txt",
+      "description": "Scan for XSS vectors and save results.",
+      "ports": [
+        "80",
+        "443"
+      ]
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

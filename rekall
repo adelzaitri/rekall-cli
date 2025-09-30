@@ -1,0 +1,198 @@
+#!/usr/bin/env python3
+"""
+rekall v1.3 - CLI pentest cheat-sheet (folder-based JSON entries; multiple commands per entry)
+
+Usage:
+  rekall list               # list available tools
+  rekall search <query>     # tool search
+  rekall search -f <query>  # fuzzy tool search
+  rekall search <query>     # port search  
+  rekall show <id-or-idprefix-or-tool>
+"""
+
+
+import os, sys, json, uuid
+from pathlib import Path
+from rapidfuzz import process, fuzz
+
+BASE_ENV = "REKALL_DIR"
+DEFAULT_BASE = Path(__file__).parent / "commands"
+#CATEGORIES = ["recon","exploit","post-ex","priv-esc","web","creds","password-attacks","misc"]
+SEARCH_SHOW_COMMANDS = 5
+
+# ANSI color codes
+BOLD = "\033[1m"
+CYAN = "\033[96m"
+GREEN = "\033[92m"
+RESET = "\033[0m"
+
+def base_dir():
+    return Path(os.environ.get(BASE_ENV, DEFAULT_BASE))
+
+def load_entries():
+    bd = base_dir()
+    entries = []
+    if not bd.exists():
+        return entries
+    for cat in bd.iterdir():
+        if not cat.is_dir(): continue
+        for f in cat.glob("*.json"):
+            try:
+                with open(f, "r", encoding="utf-8") as fh:
+                    j = json.load(fh)
+                j.setdefault("category", cat.name)
+                j.setdefault("id", j.get("id", str(uuid.uuid4())))
+                j.setdefault("name", j.get("name", f.stem))
+                j.setdefault("commands", j.get("commands", []))
+                j["_path"] = str(f)
+                entries.append(j)
+            except Exception as e:
+                print("rekall: failed to load", f, ":", e, file=sys.stderr)
+    return entries
+
+def list_all():
+    entries = load_entries()
+    if not entries:
+        print("rekall: no entries. Run `rekall init` and add JSON files.")
+        return
+    bycat = {}
+    for e in entries:
+        bycat.setdefault(e.get("category","misc"), []).append(e)
+    for cat in sorted(bycat.keys()):
+        print(f"\n== {cat} ({len(bycat[cat])}) ==")
+        for e in sorted(bycat[cat], key=lambda x: x.get("name","")):
+            print(f"{e['id'][:12]}  {BOLD}{CYAN}{e.get('tool','')}{RESET:<12}  - {BOLD}{e.get('name')}{RESET} ({len(e.get('commands',[]))} cmds)")
+
+def build_fuzzy_corpus(entries):
+    choices = {}
+    meta = {}
+    for e in entries:
+        text_parts = [
+            e.get("tool",""),
+            e.get("name",""),
+            " ".join(e.get("tags",[])) if isinstance(e.get("tags",[]), list) else str(e.get("tags",""))
+        ]
+        key_text = " ".join([p for p in text_parts if p])
+        choices[e["id"]] = key_text
+        meta[e["id"]] = e
+    return choices, meta
+
+def _print_command_item(idx, c, indent="    "):
+    cmd = c if isinstance(c, str) else c.get("command","")
+    desc = "" if isinstance(c, str) else c.get("description","")
+    ports = [] if isinstance(c, str) else c.get("ports",[])
+    name = f"(no name)" if isinstance(c, str) else c.get("name","")
+    port_str = f" ports: {','.join(ports)}" if ports else ""
+    
+    print(f"{indent}[{idx}] {BOLD}{name}{RESET}{port_str}")
+    print(f"{indent}    command: {GREEN}{cmd}{RESET}")
+    if desc:
+        print(f"{indent}    desc:    {desc}")
+
+def search_query_exact(q):
+    entries = load_entries()
+    if not entries:
+        print("rekall: no entries to search.")
+        return
+    found = []
+    q_lower = q.lower()
+    for e in entries:
+        match_tool = q_lower in (e.get("tool","").lower())
+        match_desc = q_lower in (e.get("description","").lower())
+        match_port = any(q == str(p) for c in e.get("commands",[]) for p in c.get("ports",[]))
+        if match_tool or match_desc or match_port:
+            found.append(e)
+    if not found:
+        print("rekall: no results.")
+        return
+    for e in found:
+        header = f"{e['id'][:12]}  {BOLD}{CYAN}{e.get('tool','')}/{e.get('category','')}{RESET}  - {BOLD}{e.get('name')}{RESET} ({len(e.get('commands',[]))} cmds)"
+        print(header)
+        if e.get("description"):
+            print("    " + e["description"])
+        for idx, cmd in enumerate(e.get("commands",[]), start=1):
+            _print_command_item(idx, cmd, indent="    ")
+        print("")
+
+def search_query_fuzzy(q, limit=SEARCH_SHOW_COMMANDS):
+    entries = load_entries()
+    if not entries:
+        print("rekall: no entries to search.")
+        return
+    choices, meta = build_fuzzy_corpus(entries)
+    results = process.extract(q, choices, scorer=fuzz.WRatio, limit=limit)
+    if not results:
+        print("rekall: no results.")
+        return
+    for choice_str, score, _ in results:
+        mid = next((k for k,v in choices.items() if v == choice_str), None)
+        if not mid: continue
+        e = meta[mid]
+        header = f"{mid[:12]}  {BOLD}{CYAN}{e.get('tool','')}/{e.get('category','')}{RESET}  - {BOLD}{e.get('name')}{RESET} ({len(e.get('commands',[]))} cmds)"
+        print(header)
+        if e.get("description"):
+            print("    " + e["description"])
+        for idx, cmd in enumerate(e.get("commands",[]), start=1):
+            _print_command_item(idx, cmd, indent="    ")
+        print("")
+
+def find_entry_by_prefix_or_tool(query):
+    entries = load_entries()
+    query_lower = query.lower()
+    # Exact ID match
+    for e in entries:
+        if e["id"] == query:
+            return e
+    # Prefix ID match
+    matches = [e for e in entries if e["id"].startswith(query)]
+    if len(matches) == 1:
+        return matches[0]
+    # Exact tool name match
+    matches_tool = [e for e in entries if e.get("tool","").lower() == query_lower]
+    if len(matches_tool) == 1:
+        return matches_tool[0]
+    # Substring tool match (only one result)
+    matches_sub = [e for e in entries if query_lower in e.get("tool","").lower()]
+    if len(matches_sub) == 1:
+        return matches_sub[0]
+    return None
+
+def show_entry(query):
+    e = find_entry_by_prefix_or_tool(query)
+    if not e:
+        print("rekall: entry not found for:", query)
+        return
+    print(f"ID: {e['id']}")
+    print(f"Name: {BOLD}{e.get('name')}{RESET}")
+    print(f"Tool: {BOLD}{CYAN}{e.get('tool')}{RESET}")
+    print(f"Category: {CYAN}{e.get('category')}{RESET}")
+    if e.get("description"):
+        print("\nDescription:\n  " + e["description"])
+    print("\nCommands:")
+    for idx, c in enumerate(e.get("commands",[]), start=1):
+        _print_command_item(idx, c, indent="  ")
+
+def usage():
+    print(__doc__)
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        usage(); sys.exit(1)
+    cmd = sys.argv[1]
+    if cmd == "list":
+        list_all()
+    elif cmd == "search":
+        if len(sys.argv) < 3:
+            print("rekall: provide a query"); sys.exit(1)
+        if sys.argv[2] == "-f":
+            q = " ".join(sys.argv[3:])
+            search_query_fuzzy(q)
+        else:
+            q = " ".join(sys.argv[2:])
+            search_query_exact(q)
+    elif cmd == "show":
+        if len(sys.argv) < 3:
+            print("rekall: provide an id, prefix, or tool name"); sys.exit(1)
+        show_entry(sys.argv[2])
+    else:
+        usage()

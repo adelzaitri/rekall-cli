@@ -1,0 +1,22 @@
+{
+  "id": "cb6852b8-38e",
+  "name": "powershell - execute remote scripts",
+  "tool": "powershell",
+  "description": "Use PowerShell for scripting and remote execution on Windows.",
+  "tags": [
+    "powershell",
+    "post-ex"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Execute remote script bypassing policy",
+      "command": "powershell -ExecutionPolicy Bypass -File script.ps1",
+      "description": "Run a local PowerShell script while bypassing execution policy.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "a746b39a-d2fd-4a01-9464-6066128a8938",
+  "name": "rubeus - Kerberos tooling",
+  "tool": "rubeus",
+  "description": "Kerberos abuse and ticket manipulation toolkit for Windows environments.",
+  "tags": [
+    "rubeus",
+    "kerberos"
+  ],
+  "ports": [],
+  "commands": [
+    {
+      "name": "Dump tickets",
+      "command": "Rubeus.exe dump",
+      "description": "Dump Kerberos tickets from memory.",
+      "ports": []
+    }
+  ],
+  "created": "2025-09-23T00:00:00Z",
+  "modified": "2025-09-23T00:00:00Z",
+  "platform": "any"
+}
