@@ -7,7 +7,7 @@ Useful for OSCP students, red teamers, and anyone who wants a portable cheat-she
 
 ---
 
-
+![listing available tools with rekall](images/rekall-list.png?raw=true "listing all tools: rekall list")
 
 ---
 
